@@ -1,30 +1,37 @@
-# Python
+# Python cache & bytecode
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.db
-*.sqlite3
 
 # Virtual environments
 venv/
-.env
+*/venv/
+
+# Environment variables
 *.env
 
-# Migrations cache
+# Databases
+*.db
+*.sqlite3
+
+# Flask migrations cache
 migrations/
 
-# VSCode
+# Logs
+*.log
+
+# VSCode settings
 .vscode/
 
-# Byte-compiled / logs
-*.log
-*.pot
-
-# Docker
+# Docker artifacts
 *.pid
 *.seed
+*.bak
 *.tar
 *.gz
 *.tgz
-*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
