@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environments
+venv/
+.env
+*.env
+
+# Migrations cache
+migrations/
+
+# VSCode
+.vscode/
+
+# Byte-compiled / logs
+*.log
+*.pot
+
+# Docker
+*.pid
+*.seed
+*.tar
+*.gz
+*.tgz
+*.bak
