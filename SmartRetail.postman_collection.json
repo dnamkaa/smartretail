@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "ec669b4e-0522-4783-adff-4269b9488784",
+		"name": "SmartRetail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3235934"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Ally\",\n    \"last_name\": \"Kilonzo\",\n    \"email\": \"Ally@gmail.com\",\n    \"password\": \"mypassword\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"kulwa@example.com\",\n    \"password\": \"mypassword\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://127.0.0.1:5000/auth/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"email\": \"kulwa@example.com\",\n    \"password\": \"mypassword\"\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc1Njk4OTE3NCwianRpIjoiYjhhYjYwOGMtODAwZS00YzY2LWIzNDQtZTIyNTNhOTVkOWM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjIiLCJuYmYiOjE3NTY5ODkxNzQsImNzcmYiOiI3YTlhYjQyMS0yNmYxLTQ4NGYtODNlMi04NmIyMmRlYmNhMzYiLCJleHAiOjE3NTY5OTI3NzR9.aAEzEy7T4vLIBMWcf2DWXoq5RIh_xCQ3jfxw93_G-X8"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/me",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <admin_token_here>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"users"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5000/auth/users \\\n  -H \"Authorization: Bearer <admin_token_here>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/users/1/role",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <admin_token_here>"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"role\": \"admin\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/users/1/role",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"users",
+						"1",
+						"role"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5000/auth/users/1/role \\\n  -H \"Authorization: Bearer <admin_token_here>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"role\": \"admin\"\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/users/1/deactivate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <admin_token_here>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/users/1/deactivate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"users",
+						"1",
+						"deactivate"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5000/auth/users/1/deactivate \\\n  -H \"Authorization: Bearer <admin_token_here>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/auth/users/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <admin_token_here>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/auth/users/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"users",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:5000/auth/users/1 \\\n  -H \"Authorization: Bearer <admin_token_here>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5001/products/\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5001/products/1\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Organic Rice\",\n    \"description\": \"High-quality Tanzanian rice\",\n    \"price\": 2500,\n    \"stock\": 100,\n    \"image_url\": \"https://cdn.smartretail.com/products/rice.jpg\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://127.0.0.1:5001/products/ \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\" \\\n  -d '{\n    \"name\": \"Organic Rice\",\n    \"description\": \"High-quality Tanzanian rice\",\n    \"price\": 2500,\n    \"stock\": 100,\n    \"image_url\": \"https://cdn.smartretail.com/products/rice.jpg\"\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\": 2800,\n    \"stock\": 90\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5001/products/1 \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\" \\\n  -d '{\n    \"price\": 2800,\n    \"stock\": 90\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:5001/products/1 \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5001/products/bulk",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"name\": \"Face Cream\",\n      \"description\": \"Moisturizing face cream with vitamin E\",\n      \"price\": 4500,\n      \"stock\": 200,\n      \"image_url\": \"https://cdn.smartretail.com/products/face_cream.jpg\"\n    },\n    {\n      \"name\": \"Shampoo\",\n      \"description\": \"Anti-dandruff shampoo 250ml\",\n      \"price\": 3200,\n      \"stock\": 150,\n      \"image_url\": \"https://cdn.smartretail.com/products/shampoo.jpg\"\n    },\n    {\n      \"name\": \"Toothpaste\",\n      \"description\": \"Fluoride toothpaste 100ml\",\n      \"price\": 1500,\n      \"stock\": 300,\n      \"image_url\": \"https://cdn.smartretail.com/products/toothpaste.jpg\"\n    },\n    {\n      \"name\": \"Pain Relief Tablets\",\n      \"description\": \"Ibuprofen 400mg, pack of 20\",\n      \"price\": 2500,\n      \"stock\": 500,\n      \"image_url\": \"https://cdn.smartretail.com/products/ibuprofen.jpg\"\n    },\n    {\n      \"name\": \"Vitamin C\",\n      \"description\": \"Vitamin C 1000mg tablets, 30 count\",\n      \"price\": 8000,\n      \"stock\": 100,\n      \"image_url\": \"https://cdn.smartretail.com/products/vitamin_c.jpg\"\n    }\n  ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5001/products/bulk",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5001",
+					"path": [
+						"products",
+						"bulk"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://127.0.0.1:5001/products/bulk \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\" \\\n  -d '[\n    {\n      \"name\": \"Face Cream\",\n      \"description\": \"Moisturizing face cream with vitamin E\",\n      \"price\": 4500,\n      \"stock\": 200,\n      \"image_url\": \"https://cdn.smartretail.com/products/face_cream.jpg\"\n    },\n    {\n      \"name\": \"Shampoo\",\n      \"description\": \"Anti-dandruff shampoo 250ml\",\n      \"price\": 3200,\n      \"stock\": 150,\n      \"image_url\": \"https://cdn.smartretail.com/products/shampoo.jpg\"\n    },\n    {\n      \"name\": \"Toothpaste\",\n      \"description\": \"Fluoride toothpaste 100ml\",\n      \"price\": 1500,\n      \"stock\": 300,\n      \"image_url\": \"https://cdn.smartretail.com/products/toothpaste.jpg\"\n    },\n    {\n      \"name\": \"Pain Relief Tablets\",\n      \"description\": \"Ibuprofen 400mg, pack of 20\",\n      \"price\": 2500,\n      \"stock\": 500,\n      \"image_url\": \"https://cdn.smartretail.com/products/ibuprofen.jpg\"\n    },\n    {\n      \"name\": \"Vitamin C\",\n      \"description\": \"Vitamin C 1000mg tablets, 30 count\",\n      \"price\": 8000,\n      \"stock\": 100,\n      \"image_url\": \"https://cdn.smartretail.com/products/vitamin_c.jpg\"\n    }\n  ]'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <CUSTOMER_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [\n      {\"product_id\": 1, \"quantity\": 2, \"price\": 2500},\n      {\"product_id\": 2, \"quantity\": 1, \"price\": 5500}\n    ]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://127.0.0.1:5002/orders/ \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <CUSTOMER_TOKEN>\" \\\n  -d '{\n    \"items\": [\n      {\"product_id\": 1, \"quantity\": 2, \"price\": 2500},\n      {\"product_id\": 2, \"quantity\": 1, \"price\": 5500}\n    ]\n  }'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <CUSTOMER_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5002/orders/ \\\n  -H \"Authorization: Bearer <CUSTOMER_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/all",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"all"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5002/orders/all \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <CUSTOMER_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5002/orders/1 \\\n  -H \"Authorization: Bearer <CUSTOMER_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://127.0.0.1:5002/orders/1 \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/1/status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\": \"paid\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/1/status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"1",
+						"status"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5002/orders/1/status \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\" \\\n  -d '{\"status\": \"paid\"}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/1/status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\": \"shipped\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/1/status",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"1",
+						"status"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5002/orders/1/status \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\" \\\n  -d '{\"status\": \"shipped\"}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/1/cancel",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <CUSTOMER_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/1/cancel",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"1",
+						"cancel"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5002/orders/1/cancel \\\n  -H \"Authorization: Bearer <CUSTOMER_TOKEN>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5002/orders/2/cancel",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <ADMIN_TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5002/orders/2/cancel",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5002",
+					"path": [
+						"orders",
+						"2",
+						"cancel"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://127.0.0.1:5002/orders/2/cancel \\\n  -H \"Authorization: Bearer <ADMIN_TOKEN>\"\n"
+			},
+			"response": []
+		}
+	]
+}
