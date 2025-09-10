@@ -91,4 +91,54 @@ export const api = {
       body: JSON.stringify({ status }),
     });
   },
+
+  // Analytics endpoints
+  async getSalesSummary(from?: string, to?: string) {
+    const params = new URLSearchParams();
+    if (from) params.set('from', from);
+    if (to) params.set('to', to);
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/sales-summary?${params}`);
+  },
+
+  async getTopProducts(window = 30, limit = 10, metric: 'revenue' | 'quantity' = 'revenue') {
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/top-products?window=${window}&limit=${limit}&metric=${metric}`);
+  },
+
+  async getConversionFunnel(from?: string, to?: string) {
+    const params = new URLSearchParams();
+    if (from) params.set('from', from);
+    if (to) params.set('to', to);
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/conversion-funnel?${params}`);
+  },
+
+  async getForecast(horizon = 14) {
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/forecast?horizon=${horizon}`);
+  },
+
+  async rebuildForecast(horizon = 14, lookback = 30) {
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/forecast/rebuild?horizon=${horizon}&lookback=${lookback}`, {
+      method: 'POST'
+    });
+  },
+
+  async getSalesReport(group: 'day' | 'week' | 'month', from?: string, to?: string) {
+    const params = new URLSearchParams();
+    params.set('group', group);
+    if (from) params.set('from', from);
+    if (to) params.set('to', to);
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/reports/sales?${params}`);
+  },
+
+  async getStockStatus(lowThreshold = 5, window = 30) {
+    return apiRequest(`${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/stock/status?low_threshold=${lowThreshold}&window=${window}`);
+  },
+
+  // CSV export URL
+  getSalesReportCSV(group: 'day' | 'week' | 'month', from?: string, to?: string) {
+    const params = new URLSearchParams();
+    params.set('group', group);
+    if (from) params.set('from', from);
+    if (to) params.set('to', to);
+    return `${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/reports/sales.csv?${params}`;
+  }
 };
