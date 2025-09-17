@@ -6,6 +6,7 @@ import Header from './Header';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Orders from './pages/Orders';
+import Payments from './pages/Payments'; // Add this line
 import Analytics from './pages/Analytics';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
@@ -21,6 +22,7 @@ export default function DashboardLayout() {
       case 'products': return <Products />;
       case 'orders': return <Orders />;
       case 'analytics': return <Analytics />;
+      case 'payments':return <Payments />; // Add this line
       case 'users': return user?.role === 'admin' ? <Users /> : <Dashboard />;
       case 'settings': return <Settings />;
       default: return <Dashboard />;

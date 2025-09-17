@@ -1,6 +1,7 @@
 const AUTH_BASE = process.env.NEXT_PUBLIC_AUTH_BASE;
 const PRODUCT_BASE = process.env.NEXT_PUBLIC_PRODUCT_BASE;
 const ORDER_BASE = process.env.NEXT_PUBLIC_ORDER_BASE;
+const PAYMENT_BASE = process.env.NEXT_PUBLIC_PAYMENT_BASE;
 
 function getAuthToken(): string | null {
   if (typeof window === 'undefined') return null;
@@ -10,25 +11,36 @@ function getAuthToken(): string | null {
 async function apiRequest(url: string, options: RequestInit = {}) {
   const token = getAuthToken();
   
+  // Don't set Content-Type for FormData - let browser set it with boundary
+  const isFormData = options.body instanceof FormData;
+  
   const config: RequestInit = {
     ...options,
     headers: {
-      'Content-Type': 'application/json',
+      // Only set Content-Type if it's not FormData
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
       ...(token && { Authorization: `Bearer ${token}` }),
       ...options.headers,
     },
   };
 
   const response = await fetch(url, config);
-  const data = await response.json();
+  
+  // Handle different response types
+  let data;
+  const contentType = response.headers.get('content-type');
+  if (contentType && contentType.includes('application/json')) {
+    data = await response.json();
+  } else {
+    data = { message: await response.text() };
+  }
 
   if (!response.ok) {
-    throw new Error(data.error || response.statusText);
+    throw new Error(data.error || data.message || response.statusText);
   }
 
   return data;
 }
-
 export const api = {
   // Product endpoints
   async getProducts() {
@@ -140,5 +152,47 @@ export const api = {
     if (from) params.set('from', from);
     if (to) params.set('to', to);
     return `${process.env.NEXT_PUBLIC_ANALYTICS_BASE}/analytics/reports/sales.csv?${params}`;
+  },
+
+
+  //payments endpoints
+  async getAllPayments(page = 1, status?: string, channel?: string) {
+    const params = new URLSearchParams();
+    params.set('page', page.toString());
+    if (status) params.set('status', status);
+    if (channel) params.set('channel', channel);
+    return apiRequest(`${PAYMENT_BASE}/payments/all?${params}`);
+  },
+
+  async getUserPayments(userId: number) {
+    return apiRequest(`${PAYMENT_BASE}/payments/user/${userId}`);
+  },
+
+  async getPaymentById(paymentId: number) {
+    return apiRequest(`${PAYMENT_BASE}/payments/${paymentId}`);
+  },
+
+  async getPaymentsByOrder(orderId: number) {
+    return apiRequest(`${PAYMENT_BASE}/payments/by-order/${orderId}`);
+  },
+
+  async submitOfflinePayment(data: FormData) {
+    return apiRequest(`${PAYMENT_BASE}/payments/offline`, {
+      method: 'POST',
+      body: data,
+    });
+  },
+
+  async verifyPayment(paymentId: number, approved: boolean) {
+    return apiRequest(`${PAYMENT_BASE}/payments/${paymentId}/verify`, {
+      method: 'POST',
+      body: JSON.stringify({ approved }),
+    });
+  },
+
+  async getPaymentStats() {
+    return apiRequest(`${PAYMENT_BASE}/payments/stats`);
   }
 };
+
+

@@ -15,6 +15,7 @@ export default function Sidebar({ currentPage, setCurrentPage, collapsed, userRo
     { id: 'dashboard', label: 'Dashboard', icon: '📊' },
     { id: 'products', label: 'Products', icon: '📦' },
     { id: 'orders', label: 'Orders', icon: '📋' },
+    { id: 'payments', label: 'Payments', icon: '💳' }, // Added payments
     { id: 'analytics', label: 'Analytics', icon: '📈' },
     { id: 'users', label: 'Users', icon: '👥' },
     { id: 'settings', label: 'Settings', icon: '⚙️' },
@@ -24,6 +25,7 @@ export default function Sidebar({ currentPage, setCurrentPage, collapsed, userRo
     { id: 'dashboard', label: 'Dashboard', icon: '🏠' },
     { id: 'products', label: 'Shop', icon: '🛍️' },
     { id: 'orders', label: 'My Orders', icon: '📋' },
+    { id: 'payments', label: 'My Payments', icon: '💳' }, // Added payments for customers
     { id: 'settings', label: 'Settings', icon: '⚙️' },
   ];
 
